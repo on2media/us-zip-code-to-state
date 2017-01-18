@@ -1,0 +1,13 @@
+{
+    "name": "on2media/us-zip-code-to-state",
+    "description": "Maps a US ZIP code to a state",
+    "version": "0.1.0",
+    "type": "library",
+    "keywords": ["on2 media", "zip code", "state"],
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "On2Media\\UsZipCodeToState\\": "src/"
+        }
+    }
+}
