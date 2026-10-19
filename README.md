@@ -19,3 +19,4 @@ SC, SD, TN, TX, UT, VA, VT, WA, WI, WV, WY) the following other codes are also r
 - Armed Forces (AA, AE, AP)
 - District of Columbia (DC)
 - Territories (GU, PR, VI)
+- Freely Associated States (MH)

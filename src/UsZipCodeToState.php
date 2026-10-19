@@ -10,6 +10,10 @@ class UsZipCodeToState
             throw new \Exception('Expecting a ZIP code containing five numeric characters');
         }
 
+        if (isset($this->exceptions[$zipCode])) {
+            return $this->exceptions[$zipCode];
+        }
+
         $prefix = substr($zipCode, 0, 3);
         if (!isset($this->mapping[$prefix])) {
             throw new \Exception('No match found for ZIP code with prefix `'.$prefix.'`');
@@ -17,6 +21,19 @@ class UsZipCodeToState
 
         return $this->mapping[$prefix];
     }
+
+    /**
+     * Individual ZIP codes whose state differs from the rest of their three-digit prefix.
+     */
+    private $exceptions = [
+        '06390' => 'NY', // Fishers Island (prefix 063 is CT)
+        '20588' => 'MD', // prefix 205 is DC
+        '20598' => 'VA', // prefix 205 is DC
+        '73960' => 'TX', // Texhoma (prefix 739 is OK)
+        '83414' => 'WY', // Alta (prefix 834 is ID)
+        '96960' => 'MH', // Majuro, Marshall Islands (prefix 969 is GU)
+        '96970' => 'MH', // Ebeye, Marshall Islands (prefix 969 is GU)
+    ];
 
     private $mapping = [
         '005' => 'NY',
@@ -205,6 +222,7 @@ class UsZipCodeToState
         '189' => 'PA',
         '190' => 'PA',
         '191' => 'PA',
+        '192' => 'PA',
         '193' => 'PA',
         '194' => 'PA',
         '195' => 'PA',
@@ -405,6 +423,7 @@ class UsZipCodeToState
         '396' => 'MS',
         '397' => 'MS',
         '398' => 'GA',
+        '399' => 'GA',
         '400' => 'KY',
         '401' => 'KY',
         '402' => 'KY',
@@ -461,6 +480,7 @@ class UsZipCodeToState
         '456' => 'OH',
         '457' => 'OH',
         '458' => 'OH',
+        '459' => 'OH',
         '460' => 'IN',
         '461' => 'IN',
         '462' => 'IN',
@@ -510,6 +530,7 @@ class UsZipCodeToState
         '506' => 'IA',
         '507' => 'IA',
         '508' => 'IA',
+        '509' => 'IA',
         '510' => 'IA',
         '511' => 'IA',
         '512' => 'IA',
@@ -634,6 +655,7 @@ class UsZipCodeToState
         '646' => 'MO',
         '647' => 'MO',
         '648' => 'MO',
+        '649' => 'MO',
         '650' => 'MO',
         '651' => 'MO',
         '652' => 'MO',
@@ -808,6 +830,7 @@ class UsZipCodeToState
         '838' => 'ID',
         '840' => 'UT',
         '841' => 'UT',
+        '842' => 'UT',
         '843' => 'UT',
         '844' => 'UT',
         '845' => 'UT',
@@ -830,6 +853,7 @@ class UsZipCodeToState
         '873' => 'NM',
         '874' => 'NM',
         '875' => 'NM',
+        '876' => 'NM',
         '877' => 'NM',
         '878' => 'NM',
         '879' => 'NM',
@@ -838,7 +862,8 @@ class UsZipCodeToState
         '882' => 'NM',
         '883' => 'NM',
         '884' => 'NM',
-        '885' => 'NM',
+        '885' => 'TX',
+        '889' => 'NV',
         '890' => 'NV',
         '891' => 'NV',
         '893' => 'NV',
